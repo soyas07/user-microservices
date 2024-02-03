@@ -1,12 +1,12 @@
-const express = require('express');
-const morgan = require('morgan');
-const helmet = require('helmet');
-const cors = require('cors');
+import express from 'express';
+import morgan from 'morgan';
+import helmet from 'helmet';
+import cors from 'cors';
 
-require('dotenv').config();
+import 'dotenv/config';
 
-const middlewares = require('./middlewares');
-const api = require('./api');
+import { notFound, errorHandler } from './middlewares.js';
+import api from './api/index.js';
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/v1', api);
 
-app.use(middlewares.notFound);
-app.use(middlewares.errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
-module.exports = app;
+export default app;
