@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 
 export const registerUser = async (req, res) => {
@@ -42,4 +42,3 @@ export const login = async (req, res) => {
 
     return res.status(200).json({ message: 'ok' });
 };
-

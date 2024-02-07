@@ -15,6 +15,5 @@ router.use('/emojis', emojis);
 // user routes
 router.use('/user', userRouter);
 router.get('/users', getAllUsers);
-router.post('/login', login)
 
 export default router;
