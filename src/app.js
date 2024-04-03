@@ -3,10 +3,13 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 
-import 'dotenv/config';
-
+import dotenv from 'dotenv';
 import { notFound, errorHandler } from './middlewares.js';
 import api from './api/index.js';
+
+// load the environment vairables
+const env = (process.env.npm_lifecycle_event === 'dev') ? '.env.dev' : '.env';
+dotenv.config({ path: env });
 
 const app = express();
 
