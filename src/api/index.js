@@ -1,7 +1,7 @@
 import express from 'express';
 import emojis from './emojis.js';
 import userRouter, { getAllUsers } from './user.js';
-import { login } from '../controllers/user.js';
+import friend from './friend.js';
 
 const router = express.Router();
 
@@ -15,5 +15,7 @@ router.use('/emojis', emojis);
 // user routes
 router.use('/user', userRouter);
 router.get('/users', getAllUsers);
+
+router.use('/friends', friend);
 
 export default router;
