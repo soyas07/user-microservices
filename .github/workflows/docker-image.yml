@@ -28,8 +28,7 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build Docker image
-      run: |
-        docker build -t auth-microservices:1.0.0 .
+      run: docker build -t user-microservices:1.0.0 .
 
     - name: Tag Docker image
       run: docker tag user-microservices:1.0.0 "${{ secrets.DOCKER_USERNAME }}/user-microservices:1.0.0"
