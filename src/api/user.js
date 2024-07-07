@@ -1,11 +1,10 @@
 import express from 'express';
-import { login, registerUser } from '../controllers/user.js';
+import { getUser, login, registerUser } from '../controllers/user.js';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({ "user": "GET REQUEST" });
-});
+// get a user info
+router.get('/', getUser);
 
 router.post('/', registerUser);
 

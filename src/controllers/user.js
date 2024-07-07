@@ -42,3 +42,18 @@ export const login = async (req, res) => {
 
     return res.status(200).json({ message: 'ok' });
 };
+
+export const getUser = async (req, res) => {
+    const { id } = req.query;
+
+    // debugging purposes
+    console.log(`Query Id: ${id}`);
+    
+    // get a user by id
+    const user = await User.findOne({ where: { id } });
+    if (!user)
+        return res.status(404).json({ message: 'User does not exists' });
+
+    const { password, roles, createdAt, updatedAt, ...cleanUser } = user.dataValues;
+    res.status(200).json(cleanUser);
+}
