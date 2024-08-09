@@ -40,7 +40,11 @@ export const login = async (req, res) => {
     if (!comparePassword)
         return res.status(401).json({ message: 'Invalid credentials. Please try again.' });
 
-    return res.status(200).json({ message: 'ok' });
+    return res.status(200).json({
+        id: user.id,
+        username: user.username,
+        email: user.email
+    });
 };
 
 export const getUser = async (req, res) => {
